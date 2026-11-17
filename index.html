@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pix - Banco Aumiau</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f2f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #202631;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 430px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 35px rgba(0,0,0,0.08);
+        }
+
+        .header {
+            background: #075c43;
+            color: white;
+            padding: 25px;
+        }
+
+        .bank-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .bank-subtitle {
+            font-size: 12px;
+            opacity: .8;
+            margin-top: 5px;
+        }
+
+        .content {
+            padding: 25px;
+        }
+
+        .pix-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .pix-icon {
+            width: 55px;
+            height: 55px;
+            background: #e5f6ef;
+            color: #00875a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .pix-title h2 {
+            font-size: 20px;
+            margin-bottom: 7px;
+        }
+
+        .pix-title p {
+            color: #818997;
+            font-size: 13px;
+        }
+
+        .amount {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .amount small {
+            color: #818997;
+            font-size: 13px;
+        }
+
+        .amount h1 {
+            font-size: 38px;
+            color: #075c43;
+            margin-top: 8px;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #edf0f2;
+            margin: 22px 0;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 17px;
+            gap: 15px;
+        }
+
+        .info-label {
+            color: #858d99;
+            font-size: 13px;
+        }
+
+        .info-value {
+            font-size: 13px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .pix-key {
+            background: #f5f7f8;
+            border-radius: 10px;
+            padding: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .pix-key span {
+            font-size: 12px;
+            word-break: break-all;
+            color: #555;
+        }
+
+        .copy-btn {
+            border: none;
+            background: transparent;
+            color: #00875a;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .notice {
+            background: #fff8e7;
+            border-radius: 10px;
+            padding: 13px;
+            font-size: 11px;
+            color: #87651b;
+            margin-top: 25px;
+            line-height: 1.5;
+        }
+
+        .confirm-btn {
+            width: 100%;
+            border: none;
+            background: #00875a;
+            color: white;
+            padding: 17px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 22px;
+            transition: .2s;
+        }
+
+        .confirm-btn:hover {
+            background: #006c46;
+        }
+
+        .success {
+            display: none;
+            text-align: center;
+            padding: 45px 25px;
+        }
+
+        .success-icon {
+            width: 75px;
+            height: 75px;
+            background: #e5f6ef;
+            color: #00875a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 20px;
+        }
+
+        .success h2 {
+            color: #075c43;
+            margin-bottom: 10px;
+        }
+
+        .success p {
+            font-size: 14px;
+            color: #858d99;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            color: #a0a6af;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <div class="bank-name">Banco Aumiau</div>
+        <div class="bank-subtitle">Internet Banking</div>
+    </header>
+
+    <main class="content" id="paymentScreen">
+
+        <div class="pix-title">
+            <div class="pix-icon">◇</div>
+            <h2>Confirme seu Pix</h2>
+            <p>Confira os dados antes de continuar</p>
+        </div>
+
+        <div class="amount">
+            <small>Valor do pagamento</small>
+            <h1>R$ 85,00</h1>
+        </div>
+
+        <hr class="divider">
+
+        <h3 class="section-title">Dados de quem vai receber</h3>
+
+        <div class="info">
+            <span class="info-label">Nome</span>
+            <span class="info-value">Aumiau Pet Shop</span>
+        </div>
+
+        <div class="info">
+            <span class="info-label">Instituição</span>
+            <span class="info-value">Banco Aumiau</span>
+        </div>
+
+        <div class="info">
+            <span class="info-label">Tipo de conta</span>
+            <span class="info-value">Conta corrente</span>
+        </div>
+
+        <div class="pix-key">
+            <span id="pixKey">pagamentos@aumiau.com.br</span>
+            <button class="copy-btn" onclick="copyKey()">COPIAR</button>
+        </div>
+
+        <hr class="divider">
+
+        <div class="info">
+            <span class="info-label">Forma de pagamento</span>
+            <span class="info-value">Pix</span>
+        </div>
+
+        <div class="info">
+            <span class="info-label">Data</span>
+            <span class="info-value" id="date"></span>
+        </div>
+
+        <div class="notice">
+            ⚠️ Esta é uma simulação de pagamento para fins demonstrativos.
+            Nenhuma transação financeira real será realizada.
+        </div>
+
+        <button class="confirm-btn" onclick="confirmPayment()">
+            Confirmar pagamento
+        </button>
+
+    </main>
+
+    <div class="success" id="successScreen">
+        <div class="success-icon">✓</div>
+        <h2>Pix realizado!</h2>
+        <p>Seu pagamento foi confirmado com sucesso.</p>
+
+        <div class="amount">
+            <small>Valor pago</small>
+            <h1>R$ 85,00</h1>
+        </div>
+
+        <p>Esta é apenas uma confirmação simulada.</p>
+    </div>
+
+    <footer class="footer">
+        Banco Aumiau © 2026
+        <br><br>
+        Ambiente de demonstração
+    </footer>
+
+</div>
+
+<script>
+    document.getElementById("date").textContent =
+        new Date().toLocaleDateString("pt-BR");
+
+    function copyKey() {
+        const key = document.getElementById("pixKey").textContent;
+
+        navigator.clipboard.writeText(key);
+
+        alert("Chave Pix copiada!");
+    }
+
+    function confirmPayment() {
+        const confirmation = confirm(
+            "Deseja confirmar esta simulação de pagamento?"
+        );
+
+        if (confirmation) {
+            document.getElementById("paymentScreen").style.display = "none";
+            document.getElementById("successScreen").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
